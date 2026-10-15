@@ -1,39 +1,32 @@
 <!DOCTYPE html>
-<html lang="th" class="scroll-smooth">
+<html lang="th">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mankao Roopsing | Academic Portfolio</title>
+    <title>Academic Portfolio - มั่นเกล้า รูปสิงห์</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts: Prompt & Kanit -->
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Prompt -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&family=Kanit:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        pastel: {
-                            blue: '#D6E4FF',
-                            blueDark: '#A5C4FF',
-                            purple: '#E8DEF8',
-                            purpleDark: '#C8B6FF',
-                            pink: '#FFD6E8',
-                            yellow: '#FFF3B0',
-                            bg: '#F8F9FA',
-                            card: '#FFFFFF',
-                            text: '#4A4E69',
-                            textDark: '#2B2D42'
-                        }
+                        pastelBlue: '#E2F0D9',
+                        softBlue: '#D0E8FF',
+                        pastelPurple: '#E8DFF5',
+                        softPurple: '#B39DDB',
+                        pastelPink: '#FCE4EC',
+                        pastelYellow: '#FFF9C4',
+                        accentDark: '#4A4E69'
                     },
                     fontFamily: {
-                        prompt: ['Prompt', 'sans-serif'],
-                        kanit: ['Kanit', 'sans-serif']
+                        prompt: ['Prompt', 'sans-serif']
                     }
                 }
             }
@@ -42,453 +35,191 @@
     <style>
         body {
             font-family: 'Prompt', sans-serif;
-            background-color: #F8F9FA;
-            color: #4A4E69;
         }
-        .gradient-text {
-            background: linear-gradient(135deg, #7B2CBF, #4EA8DE);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        .gradient-bg {
+            background: linear-gradient(135deg, #E6F0FA 0%, #F3E8FF 50%, #FCE4EC 100%);
         }
         .glass-card {
             background: rgba(255, 255, 255, 0.85);
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(220, 210, 255, 0.5);
-        }
-        .hover-bounce:hover {
-            transform: translateY(-6px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
         }
     </style>
 </head>
-<body class="antialiased selection:bg-pastel-purpleDark selection:text-white">
+<body class="gradient-bg text-slate-700 min-h-screen flex flex-col justify-between">
 
-    <!-- Navigation Bar -->
-    <header class="sticky top-0 z-50 transition-all duration-300 backdrop-blur-md bg-white/70 border-b border-purple-100">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-            <a href="#" class="flex items-center gap-2 group">
-                <span class="w-10 h-10 rounded-full bg-gradient-to-tr from-purple-300 to-blue-200 flex items-center justify-center text-purple-700 font-bold text-lg shadow-sm group-hover:scale-105 transition-transform">
-                    <i class="fa-solid fa-user-nurse"></i>
-                </span>
-                <span class="font-kanit text-xl font-bold gradient-text">Mankao.Portfolio</span>
-            </a>
-
-            <!-- Desktop Nav Links -->
-            <nav class="hidden md:flex items-center space-x-6 text-sm font-medium">
+    <!-- Navbar -->
+    <nav class="sticky top-0 z-50 glass-card shadow-sm border-b border-purple-100">
+        <div class="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
+            <span class="text-xl font-bold bg-gradient-to-r from-purple-500 to-indigo-500 bg-clip-text text-transparent">
+                <i class="fa-solid fa-graduation-cap text-purple-400 mr-2"></i>Mankao Portfolio
+            </span>
+            <div class="space-x-6 text-sm font-medium hidden md:block">
                 <a href="#about" class="hover:text-purple-600 transition-colors">เกี่ยวกับฉัน</a>
-                <a href="#academic" class="hover:text-purple-600 transition-colors">เป้าหมายวิชาการ</a>
-                <a href="#hobbies" class="hover:text-purple-600 transition-colors">งานอดิเรก & สิ่งที่ชอบ</a>
-                <a href="#contact" class="px-4 py-2 rounded-full bg-gradient-to-r from-purple-300 to-blue-200 text-purple-900 font-semibold hover:shadow-md transition-all">ติดต่อป๋องแป้ง</a>
-            </nav>
-
-            <!-- Mobile Menu Button -->
-            <button id="menu-btn" class="md:hidden p-2 text-gray-600 hover:text-purple-600 focus:outline-none">
-                <i class="fa-solid fa-bars text-xl"></i>
-            </button>
+                <a href="#education" class="hover:text-purple-600 transition-colors">ประวัติการศึกษา</a>
+                <a href="#contact" class="hover:text-purple-600 transition-colors">ติดต่อ</a>
+            </div>
         </div>
+    </nav>
 
-        <!-- Mobile Navigation Drawer -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white/95 border-b border-purple-100 px-4 pt-2 pb-4 space-y-2">
-            <a href="#about" class="block px-3 py-2 rounded-md hover:bg-purple-50 text-gray-700">เกี่ยวกับฉัน</a>
-            <a href="#academic" class="block px-3 py-2 rounded-md hover:bg-purple-50 text-gray-700">เป้าหมายวิชาการ</a>
-            <a href="#hobbies" class="block px-3 py-2 rounded-md hover:bg-purple-50 text-gray-700">งานอดิเรก & สิ่งที่ชอบ</a>
-            <a href="#contact" class="block px-3 py-2 rounded-md bg-purple-100 text-purple-800 font-medium">ติดต่อป๋องแป้ง</a>
-        </div>
-    </header>
+    <!-- Main Container -->
+    <main class="max-w-4xl mx-auto px-6 py-10 space-y-12">
 
-    <!-- Hero Section -->
-    <section class="py-16 md:py-24 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
-        <div class="grid md:grid-cols-2 gap-12 items-center">
-            <!-- Left Info -->
-            <div class="space-y-6 text-center md:text-left">
-                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-purple-100 text-purple-700 text-sm font-medium">
-                    <i class="fa-solid fa-sparkles text-yellow-500"></i> ยินดีต้อนรับสู่พอร์ตโฟลิโอของฉัน
+        <!-- Hero / Profile Section -->
+        <section id="about" class="glass-card rounded-3xl p-8 md:p-12 shadow-lg border border-purple-100 text-center md:text-left flex flex-col md:flex-row items-center gap-8">
+            <div class="relative group">
+                <div class="absolute -inset-1 bg-gradient-to-r from-blue-300 via-purple-300 to-pink-300 rounded-full blur opacity-70 group-hover:opacity-100 transition duration-300"></div>
+                <!-- GitHub Direct Raw Image URL -->
+                <img src="https://raw.githubusercontent.com/mankaop9-art/mankaopp/main/IMG_0831.JPG" alt="นางสาวมั่นเกล้า รูปสิงห์ (ป๋องแป้ง)" class="relative w-44 h-44 rounded-full object-cover shadow-md border-4 border-white">
+            </div>
+            
+            <div class="space-y-3 flex-1">
+                <div class="inline-block px-3 py-1 bg-purple-100 text-purple-600 rounded-full text-xs font-semibold tracking-wide">
+                    ✨ นักวิชาการสาธารณสุขในอนาคต
                 </div>
-                <h1 class="text-4xl sm:text-5xl font-bold font-kanit text-pastel-textDark leading-tight">
-                    สวัสดีค่ะ 👋 ฉันคือ<br>
-                    <span class="gradient-text">ป๋องแป้ง - มั่นเกล้า รูปสิงห์</span>
+                <h1 class="text-3xl md:text-4xl font-bold text-slate-800">
+                    นางสาวมั่นเกล้า รูปสิงห์ <span class="text-purple-400 text-2xl font-normal">(ป๋องแป้ง)</span>
                 </h1>
-                <p class="text-lg text-gray-600 max-w-lg">
-                    มีความมุ่งมั่นและตั้งใจที่จะเติบโตในสายงาน <strong class="text-purple-700">นักวิชาการสาธารณสุข</strong> เพื่อส่งเสริมสุขภาพและคุณภาพชีวิตที่ดีของชุมชน
+                <p class="text-sm text-slate-500 flex items-center justify-center md:justify-start gap-2">
+                    <i class="fa-solid fa-cake-candles text-pink-400"></i> เกิดวันที่ 5 มกราคม 2550 (อายุ 19 ปี)
                 </p>
-
-                <!-- Quote Card -->
-                <div class="p-4 rounded-2xl bg-gradient-to-r from-blue-50 to-purple-50 border border-purple-100 relative shadow-sm">
-                    <i class="fa-solid fa-quote-left text-purple-300 text-2xl absolute -top-3 left-4"></i>
-                    <p class="text-sm font-medium text-purple-900 italic pt-1 pl-4">
-                        "อะไรที่ทำแล้วย่อมดีเสมอ"
-                    </p>
-                    <span class="block text-xs text-right text-purple-600 mt-1 font-semibold">— คติประจำใจ</span>
+                
+                <!-- Quote -->
+                <div class="mt-4 p-4 rounded-2xl bg-gradient-to-r from-softBlue/30 to-pastelPurple/40 border border-purple-100/50 text-slate-600 text-sm italic">
+                    <i class="fa-solid fa-quote-left text-purple-300 mr-2"></i>
+                    "อะไรที่ทำแล้วย่อมดีเสมอ"
+                    <i class="fa-solid fa-quote-right text-purple-300 ml-2"></i>
                 </div>
 
-                <div class="pt-2 flex flex-wrap gap-4 justify-center md:justify-start">
-                    <a href="#academic" class="px-6 py-3 rounded-2xl bg-gradient-to-r from-purple-400 to-blue-400 text-white font-semibold shadow-md hover:shadow-lg transition-all hover-bounce">
-                        ดูเป้าหมายวิชาการ <i class="fa-solid fa-arrow-right ml-1"></i>
-                    </a>
-                    <a href="#contact" class="px-6 py-3 rounded-2xl bg-white border border-purple-200 text-purple-700 font-semibold hover:bg-purple-50 transition-all hover-bounce">
-                        ข้อมูลติดต่อ
-                    </a>
+                <!-- Personal Traits -->
+                <div class="pt-2 flex flex-wrap gap-2 justify-center md:justify-start">
+                    <span class="px-3 py-1 bg-blue-100 text-blue-700 text-xs rounded-full font-medium"><i class="fa-solid fa-check text-blue-400 mr-1"></i> ขยัน</span>
+                    <span class="px-3 py-1 bg-purple-100 text-purple-700 text-xs rounded-full font-medium"><i class="fa-solid fa-check text-purple-400 mr-1"></i> รับผิดชอบ</span>
+                    <span class="px-3 py-1 bg-pink-100 text-pink-700 text-xs rounded-full font-medium"><i class="fa-solid fa-check text-pink-400 mr-1"></i> รับฟัง</span>
                 </div>
             </div>
+        </section>
 
-            <!-- Right Avatar & Visuals -->
-            <div class="flex justify-center relative">
-                <!-- Decorative Circles -->
-                <div class="absolute w-72 h-72 rounded-full bg-pastel-purple blur-2xl opacity-60 -z-10 -top-4 -left-4"></div>
-                <div class="absolute w-72 h-72 rounded-full bg-pastel-blue blur-2xl opacity-60 -z-10 -bottom-4 -right-4"></div>
-
-                <!-- Avatar Box -->
-                <div class="relative glass-card p-6 rounded-3xl shadow-xl max-w-sm w-full text-center border-2 border-white/60">
-                    <div class="w-48 h-48 mx-auto rounded-full bg-gradient-to-tr from-pink-200 via-purple-200 to-blue-200 p-1.5 shadow-inner mb-4">
-                        <!-- Placeholder Avatar Graphic -->
-                        <div class="w-full h-full rounded-full bg-white flex flex-col items-center justify-center text-purple-400 overflow-hidden relative">
-                            <i class="fa-solid fa-user-graduate text-6xl text-purple-300 mt-4"></i>
-                            <span class="text-xs font-semibold mt-2 text-purple-500 bg-purple-50 px-3 py-1 rounded-full">ป๋องแป้ง</span>
-                        </div>
+        <!-- Personal Info & Hobbies Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            
+            <!-- Favorite Colors -->
+            <section class="glass-card rounded-2xl p-6 shadow-md border border-purple-100">
+                <h2 class="text-lg font-bold text-slate-800 mb-4 flex items-center gap-2">
+                    <i class="fa-solid fa-palette text-purple-400"></i> สีที่ชอบ
+                </h2>
+                <div class="grid grid-cols-3 gap-3 text-center">
+                    <div class="p-3 bg-pink-100 border border-pink-200 rounded-xl text-pink-700 text-xs font-semibold flex flex-col items-center gap-1">
+                        <span class="w-4 h-4 rounded-full bg-pink-300 inline-block"></span> สีชมพู
                     </div>
-                    <h2 class="text-xl font-bold font-kanit text-pastel-textDark">นางสาวมั่นเกล้า รูปสิงห์</h2>
-                    <p class="text-sm text-purple-600 font-medium">Mankao Roopsing</p>
-                    <div class="mt-4 pt-4 border-t border-purple-100 flex justify-around text-xs text-gray-600">
-                        <div>
-                            <span class="block font-bold text-base text-purple-700">19 ปี</span>
-                            อายุ
-                        </div>
-                        <div class="border-r border-purple-100"></div>
-                        <div>
-                            <span class="block font-bold text-base text-purple-700">5 ม.ค. 2550</span>
-                            วันเกิด
-                        </div>
+                    <div class="p-3 bg-purple-100 border border-purple-200 rounded-xl text-purple-700 text-xs font-semibold flex flex-col items-center gap-1">
+                        <span class="w-4 h-4 rounded-full bg-purple-300 inline-block"></span> สีม่วง
+                    </div>
+                    <div class="p-3 bg-yellow-100 border border-yellow-200 rounded-xl text-yellow-700 text-xs font-semibold flex flex-col items-center gap-1">
+                        <span class="w-4 h-4 rounded-full bg-yellow-300 inline-block"></span> สีเหลือง
                     </div>
                 </div>
-            </div>
+            </section>
+
+            <!-- Hobbies -->
+            <section class="glass-card rounded-2xl p-6 shadow-md border border-purple-100">
+                <h2 class="text-lg font-bold text-slate-800 mb-4 flex items-center gap-2">
+                    <i class="fa-solid fa-heart text-pink-400"></i> งานอดิเรก
+                </h2>
+                <div class="grid grid-cols-3 gap-3 text-center">
+                    <div class="p-3 bg-white/80 border border-slate-100 rounded-xl text-slate-700 text-xs font-medium flex flex-col items-center gap-1 shadow-sm">
+                        <i class="fa-solid fa-utensils text-purple-400 text-base"></i> ทำอาหาร
+                    </div>
+                    <div class="p-3 bg-white/80 border border-slate-100 rounded-xl text-slate-700 text-xs font-medium flex flex-col items-center gap-1 shadow-sm">
+                        <i class="fa-solid fa-camera text-blue-400 text-base"></i> ถ่ายรูป
+                    </div>
+                    <div class="p-3 bg-white/80 border border-slate-100 rounded-xl text-slate-700 text-xs font-medium flex flex-col items-center gap-1 shadow-sm">
+                        <i class="fa-solid fa-music text-pink-400 text-base"></i> ฟังเพลง
+                    </div>
+                </div>
+            </section>
         </div>
-    </section>
 
-    <!-- About Me Section -->
-    <section id="about" class="py-16 bg-white/60">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-xl mx-auto mb-12">
-                <h2 class="text-3xl font-bold font-kanit text-pastel-textDark mb-2">เกี่ยวกับฉัน (About Me)</h2>
-                <div class="w-16 h-1 bg-gradient-to-r from-purple-400 to-blue-400 mx-auto rounded-full"></div>
-                <p class="text-gray-600 mt-3 text-sm">ทำความรู้จักตัวตนและลักษณะเด่นของป๋องแป้ง</p>
-            </div>
+        <!-- Academic & Career Goal Timeline -->
+        <section id="education" class="glass-card rounded-3xl p-8 shadow-md border border-purple-100 space-y-6">
+            <h2 class="text-2xl font-bold text-slate-800 border-b border-purple-100 pb-3 flex items-center gap-3">
+                <i class="fa-solid fa-user-graduate text-indigo-400"></i> ประวัติการศึกษาและเป้าหมายอาชีพ
+            </h2>
 
-            <div class="grid md:grid-cols-3 gap-6">
-                <!-- Info Card 1 -->
-                <div class="p-6 rounded-3xl bg-pastel-card border border-purple-100 shadow-sm hover-bounce transition-all">
-                    <div class="w-12 h-12 rounded-2xl bg-pastel-purple flex items-center justify-center text-purple-600 mb-4 text-xl">
-                        <i class="fa-solid fa-id-card"></i>
-                    </div>
-                    <h3 class="text-lg font-bold font-kanit text-pastel-textDark mb-2">ข้อมูลส่วนตัว</h3>
-                    <ul class="text-sm space-y-2 text-gray-600">
-                        <li><strong class="text-gray-800">ชื่อจริง:</strong> นางสาวมั่นเกล้า รูปสิงห์</li>
-                        <li><strong class="text-gray-800">ชื่อเล่น:</strong> ป๋องแป้ง</li>
-                        <li><strong class="text-gray-800">อายุ:</strong> 19 ปี</li>
-                        <li><strong class="text-gray-800">วันเกิด:</strong> 5 มกราคม 2550</li>
-                    </ul>
+            <div class="relative border-l-2 border-purple-200 ml-4 pl-6 space-y-8">
+                <!-- Career Goal -->
+                <div class="relative">
+                    <span class="absolute -left-[31px] top-1 bg-purple-400 text-white rounded-full w-6 h-6 flex items-center justify-center text-xs">
+                        <i class="fa-solid fa-bullseye"></i>
+                    </span>
+                    <h3 class="text-lg font-bold text-slate-800">เป้าหมายอาชีพในฝัน</h3>
+                    <p class="text-purple-600 font-semibold text-sm mt-1">นักวิชาการสาธารณสุข</p>
+                    <p class="text-slate-500 text-sm mt-1">
+                        มุ่งมั่นที่จะนำความรู้ ความสามารถ และความรับผิดชอบ มาพัฒนาสุขภาพและคุณภาพชีวิตของชุมชนอย่างยั่งยืน
+                    </p>
                 </div>
 
-                <!-- Info Card 2 -->
-                <div class="p-6 rounded-3xl bg-pastel-card border border-blue-100 shadow-sm hover-bounce transition-all">
-                    <div class="w-12 h-12 rounded-2xl bg-pastel-blue flex items-center justify-center text-blue-600 mb-4 text-xl">
-                        <i class="fa-solid fa-star"></i>
-                    </div>
-                    <h3 class="text-lg font-bold font-kanit text-pastel-textDark mb-2">นิสัยเด่น / คุณลักษณะ</h3>
-                    <div class="flex flex-wrap gap-2 mt-3">
-                        <span class="px-3 py-1.5 rounded-xl bg-purple-50 border border-purple-200 text-purple-700 text-xs font-semibold">
-                            <i class="fa-solid fa-fire text-amber-500 mr-1"></i> ขยัน
-                        </span>
-                        <span class="px-3 py-1.5 rounded-xl bg-blue-50 border border-blue-200 text-blue-700 text-xs font-semibold">
-                            <i class="fa-solid fa-circle-check text-emerald-500 mr-1"></i> มีความรับผิดชอบ
-                        </span>
-                        <span class="px-3 py-1.5 rounded-xl bg-pink-50 border border-pink-200 text-pink-700 text-xs font-semibold">
-                            <i class="fa-solid fa-ear-listen text-pink-500 mr-1"></i> พร้อมรับฟัง
-                        </span>
-                    </div>
-                </div>
-
-                <!-- Info Card 3 -->
-                <div class="p-6 rounded-3xl bg-pastel-card border border-yellow-100 shadow-sm hover-bounce transition-all">
-                    <div class="w-12 h-12 rounded-2xl bg-pastel-yellow flex items-center justify-center text-amber-600 mb-4 text-xl">
-                        <i class="fa-solid fa-user-doctor"></i>
-                    </div>
-                    <h3 class="text-lg font-bold font-kanit text-pastel-textDark mb-2">อาชีพในฝัน</h3>
-                    <p class="text-sm text-gray-600 leading-relaxed">
-                        <span class="font-bold text-purple-700 text-base block mb-1">"นักวิชาการสาธารณสุข"</span>
-                        มุ่งมั่นพัฒนาความรู้เพื่อยกระดับการดูแลสุขภาพ การป้องกันโรค และสร้างสุขภาวะที่ดีให้กับชุมชนและสังคม
+                <!-- Academic Info -->
+                <div class="relative">
+                    <span class="absolute -left-[31px] top-1 bg-blue-400 text-white rounded-full w-6 h-6 flex items-center justify-center text-xs">
+                        <i class="fa-solid fa-book"></i>
+                    </span>
+                    <h3 class="text-lg font-bold text-slate-800">เส้นทางการศึกษา</h3>
+                    <p class="text-slate-600 text-sm mt-1">
+                        พร้อมสำหรับการเรียนรู้และพัฒนาทักษะทางวิชาการและวิชาชีพอย่างต่อเนื่อง
                     </p>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Academic & Career Goals Section -->
-    <section id="academic" class="py-16 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center max-w-xl mx-auto mb-12">
-            <h2 class="text-3xl font-bold font-kanit text-pastel-textDark mb-2">การศึกษา & เป้าหมายวิชาการ</h2>
-            <div class="w-16 h-1 bg-gradient-to-r from-purple-400 to-blue-400 mx-auto rounded-full"></div>
-            <p class="text-gray-600 mt-3 text-sm">ความมุ่งมั่นบนเส้นทางด้านวิทยาศาสตร์สุขภาพและสาธารณสุข</p>
-        </div>
+        <!-- Contact Section -->
+        <section id="contact" class="glass-card rounded-3xl p-8 shadow-md border border-purple-100 space-y-6">
+            <h2 class="text-2xl font-bold text-slate-800 border-b border-purple-100 pb-3 flex items-center gap-3">
+                <i class="fa-solid fa-address-book text-pink-400"></i> ข้อมูลการติดต่อ
+            </h2>
 
-        <div class="grid md:grid-cols-2 gap-8 items-center">
-            <!-- Timeline / Roadmap -->
-            <div class="space-y-6">
-                <!-- Step 1 -->
-                <div class="flex gap-4 p-5 rounded-2xl bg-white border border-purple-100 shadow-sm">
-                    <div class="w-10 h-10 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center font-bold shrink-0">1</div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <!-- Email -->
+                <div class="p-4 bg-white/70 border border-purple-100 rounded-2xl flex items-center gap-3 shadow-sm hover:shadow-md transition">
+                    <div class="w-10 h-10 rounded-full bg-purple-100 text-purple-500 flex items-center justify-center text-lg">
+                        <i class="fa-solid fa-envelope"></i>
+                    </div>
                     <div>
-                        <h4 class="font-bold text-gray-800 font-kanit">ศึกษาและพัฒนาความรู้พื้นฐานด้านสาธารณสุข</h4>
-                        <p class="text-xs text-gray-600 mt-1">มุ่งเน้นการศึกษาด้านวิทยาศาสตร์สุขภาพ การส่งเสริมสุขภาพ และการป้องกันโรคในระดับชุมชน</p>
+                        <p class="text-xs text-slate-400 font-medium">อีเมล</p>
+                        <a href="mailto:mankaop9@gmail.com" class="text-xs md:text-sm font-semibold text-slate-700 hover:text-purple-600">mankaop9@gmail.com</a>
                     </div>
                 </div>
 
-                <!-- Step 2 -->
-                <div class="flex gap-4 p-5 rounded-2xl bg-white border border-blue-100 shadow-sm">
-                    <div class="w-10 h-10 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-bold shrink-0">2</div>
+                <!-- Phone -->
+                <div class="p-4 bg-white/70 border border-blue-100 rounded-2xl flex items-center gap-3 shadow-sm hover:shadow-md transition">
+                    <div class="w-10 h-10 rounded-full bg-blue-100 text-blue-500 flex items-center justify-center text-lg">
+                        <i class="fa-solid fa-phone"></i>
+                    </div>
                     <div>
-                        <h4 class="font-bold text-gray-800 font-kanit">การฝึกทักษะและการลงพื้นที่ทำงานจริง</h4>
-                        <p class="text-xs text-gray-600 mt-1">สั่งสมประสบการณ์จากการลงพื้นที่ สื่อสารและรับฟังปัญหาเพื่อเข้าถึงความต้องการด้านสุขภาพของประชาชน</p>
+                        <p class="text-xs text-slate-400 font-medium">เบอร์โทรศัพท์</p>
+                        <a href="tel:0923408243" class="text-sm font-semibold text-slate-700 hover:text-blue-600">092-340-8243</a>
                     </div>
                 </div>
 
-                <!-- Step 3 -->
-                <div class="flex gap-4 p-5 rounded-2xl bg-white border border-pink-100 shadow-sm">
-                    <div class="w-10 h-10 rounded-full bg-pink-100 text-pink-600 flex items-center justify-center font-bold shrink-0">3</div>
-                    <div>
-                        <h4 class="font-bold text-gray-800 font-kanit">ก้าวสู่การเป็นนักวิชาการสาธารณสุขมืออาชีพ</h4>
-                        <p class="text-xs text-gray-600 mt-1">ประยุกต์ใช้องค์ความรู้ ความขยัน และความรับผิดชอบในการสร้างสรรค์โครงการสาธารณสุขที่มีประโยชน์ต่อส่วนรวม</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Vision Box -->
-            <div class="p-8 rounded-3xl bg-gradient-to-br from-purple-100 via-blue-50 to-pink-50 border border-purple-200 relative overflow-hidden">
-                <div class="absolute -right-6 -bottom-6 w-32 h-32 bg-purple-200/50 rounded-full blur-xl"></div>
-                <h3 class="text-xl font-bold font-kanit text-purple-900 mb-3">
-                    <i class="fa-solid fa-heart-pulse text-pink-500 mr-2"></i>วิสัยทัศน์ในอาชีพ
-                </h3>
-                <p class="text-sm text-gray-700 leading-relaxed mb-4">
-                    "สุขภาพที่ดีเป็นรากฐานของความสุขทั้งปวง การได้เป็นส่วนหนึ่งในการวางแผน เผยแพร่ความรู้ และป้องกันโรคภัยไข้เจ็บ ถือเป็นเป้าหมายสำคัญที่ทำให้ฉันตั้งใจพัฒนาตนเองอย่างต่อเนื่อง"
-                </p>
-                <div class="flex items-center gap-3 pt-2">
-                    <span class="px-3 py-1 bg-white/80 rounded-lg text-xs font-medium text-purple-800 shadow-sm">#นักวิชาการสาธารณสุข</span>
-                    <span class="px-3 py-1 bg-white/80 rounded-lg text-xs font-medium text-blue-800 shadow-sm">#ส่งเสริมสุขภาพชุมชน</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Hobbies & Favorite Colors Section -->
-    <section id="hobbies" class="py-16 bg-white/60">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-xl mx-auto mb-12">
-                <h2 class="text-3xl font-bold font-kanit text-pastel-textDark mb-2">งานอดิเรก & สิ่งที่ชอบ</h2>
-                <div class="w-16 h-1 bg-gradient-to-r from-purple-400 to-blue-400 mx-auto rounded-full"></div>
-                <p class="text-gray-600 mt-3 text-sm">กิจกรรมยามว่าง และโทนสีที่เติมแรงบันดาลใจ</p>
-            </div>
-
-            <!-- Hobbies Grid -->
-            <h3 class="text-lg font-bold font-kanit text-purple-800 mb-4 flex items-center gap-2">
-                <i class="fa-solid fa-icons"></i> งานอดิเรก (Hobbies)
-            </h3>
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-12">
-                <!-- Hobby 1 -->
-                <div class="p-6 rounded-3xl bg-pastel-card border border-purple-100 shadow-sm hover-bounce text-center">
-                    <div class="w-16 h-16 mx-auto rounded-full bg-pink-100 text-pink-500 flex items-center justify-center text-2xl mb-3">
-                        <i class="fa-solid fa-utensils"></i>
-                    </div>
-                    <h4 class="font-bold text-gray-800 font-kanit">ทำอาหาร</h4>
-                    <p class="text-xs text-gray-500 mt-1">ชอบการทดลองทำเมนูอร่อยๆ และใส่ใจเรื่องโภชนาการ</p>
-                </div>
-
-                <!-- Hobby 2 -->
-                <div class="p-6 rounded-3xl bg-pastel-card border border-purple-100 shadow-sm hover-bounce text-center">
-                    <div class="w-16 h-16 mx-auto rounded-full bg-blue-100 text-blue-500 flex items-center justify-center text-2xl mb-3">
-                        <i class="fa-solid fa-camera"></i>
-                    </div>
-                    <h4 class="font-bold text-gray-800 font-kanit">ถ่ายรูป</h4>
-                    <p class="text-xs text-gray-500 mt-1">บันทึกภาพความประทับใจ ความสวยงาม และเรื่องราวรอบตัว</p>
-                </div>
-
-                <!-- Hobby 3 -->
-                <div class="p-6 rounded-3xl bg-pastel-card border border-purple-100 shadow-sm hover-bounce text-center">
-                    <div class="w-16 h-16 mx-auto rounded-full bg-purple-100 text-purple-500 flex items-center justify-center text-2xl mb-3">
-                        <i class="fa-solid fa-music"></i>
-                    </div>
-                    <h4 class="font-bold text-gray-800 font-kanit">ฟังเพลง</h4>
-                    <p class="text-xs text-gray-500 mt-1">ผ่อนคลายสมอง เติมพลังบวก และสร้างสมาธิในการทำงาน</p>
-                </div>
-            </div>
-
-            <!-- Favorite Colors Palette -->
-            <h3 class="text-lg font-bold font-kanit text-purple-800 mb-4 flex items-center gap-2">
-                <i class="fa-solid fa-palette"></i> โทนสีที่ชอบ (Favorite Colors)
-            </h3>
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                <div class="p-4 rounded-2xl bg-pink-100 border border-pink-200 flex items-center gap-4">
-                    <div class="w-10 h-10 rounded-xl bg-pink-300 shadow-sm"></div>
-                    <div>
-                        <span class="font-bold text-pink-900 block font-kanit">สีชมพู (Pink)</span>
-                        <span class="text-xs text-pink-700">สะท้อนความอ่อนโยน และความใส่ใจ</span>
-                    </div>
-                </div>
-
-                <div class="p-4 rounded-2xl bg-purple-100 border border-purple-200 flex items-center gap-4">
-                    <div class="w-10 h-10 rounded-xl bg-purple-300 shadow-sm"></div>
-                    <div>
-                        <span class="font-bold text-purple-900 block font-kanit">สีม่วง (Purple)</span>
-                        <span class="text-xs text-purple-700">สะท้อนความผ่อนคลาย มีสติ และสงบ</span>
-                    </div>
-                </div>
-
-                <div class="p-4 rounded-2xl bg-yellow-100 border border-yellow-200 flex items-center gap-4">
-                    <div class="w-10 h-10 rounded-xl bg-yellow-300 shadow-sm"></div>
-                    <div>
-                        <span class="font-bold text-amber-900 block font-kanit">สีเหลือง (Yellow)</span>
-                        <span class="text-xs text-amber-700">สะท้อนความสดใส และพลังงานบวก</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="py-16 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center max-w-xl mx-auto mb-12">
-            <h2 class="text-3xl font-bold font-kanit text-pastel-textDark mb-2">ช่องทางติดต่อ (Contact)</h2>
-            <div class="w-16 h-1 bg-gradient-to-r from-purple-400 to-blue-400 mx-auto rounded-full"></div>
-            <p class="text-gray-600 mt-3 text-sm">หากต้องการสอบถามข้อมูล หรือพูดคุยแลกเปลี่ยนเพิ่มเติม สามารถติดต่อได้เลยค่ะ</p>
-        </div>
-
-        <div class="grid md:grid-cols-2 gap-8">
-            <!-- Contact Info Box -->
-            <div class="space-y-4">
-                <!-- Email Card -->
-                <div class="p-5 rounded-2xl bg-white border border-purple-100 shadow-sm flex items-center justify-between">
-                    <div class="flex items-center gap-4">
-                        <div class="w-10 h-10 rounded-xl bg-purple-100 text-purple-600 flex items-center justify-center">
-                            <i class="fa-solid fa-envelope"></i>
-                        </div>
-                        <div>
-                            <span class="text-xs text-gray-500 block">อีเมล (Email)</span>
-                            <span class="font-medium text-gray-800 text-sm">mankaop9@gmail.com</span>
-                        </div>
-                    </div>
-                    <button onclick="copyToClipboard('mankaop9@gmail.com', 'คัดลอกอีเมลแล้ว!')" class="text-xs px-3 py-1.5 rounded-lg bg-purple-50 hover:bg-purple-100 text-purple-700 font-medium transition-colors">
-                        คัดลอก
-                    </button>
-                </div>
-
-                <!-- Phone Card -->
-                <div class="p-5 rounded-2xl bg-white border border-blue-100 shadow-sm flex items-center justify-between">
-                    <div class="flex items-center gap-4">
-                        <div class="w-10 h-10 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center">
-                            <i class="fa-solid fa-phone"></i>
-                        </div>
-                        <div>
-                            <span class="text-xs text-gray-500 block">เบอร์โทรศัพท์ (Phone)</span>
-                            <span class="font-medium text-gray-800 text-sm">092-340-8243</span>
-                        </div>
-                    </div>
-                    <a href="tel:0923408243" class="text-xs px-3 py-1.5 rounded-lg bg-blue-50 hover:bg-blue-100 text-blue-700 font-medium transition-colors">
-                        โทรออก
-                    </a>
-                </div>
-
-                <!-- Address Card -->
-                <div class="p-5 rounded-2xl bg-white border border-pink-100 shadow-sm flex items-start gap-4">
-                    <div class="w-10 h-10 rounded-xl bg-pink-100 text-pink-600 flex items-center justify-center shrink-0">
+                <!-- Location -->
+                <div class="p-4 bg-white/70 border border-pink-100 rounded-2xl flex items-center gap-3 shadow-sm hover:shadow-md transition">
+                    <div class="w-10 h-10 rounded-full bg-pink-100 text-pink-500 flex items-center justify-center text-lg">
                         <i class="fa-solid fa-location-dot"></i>
                     </div>
                     <div>
-                        <span class="text-xs text-gray-500 block">ที่อยู่ (Address)</span>
-                        <span class="font-medium text-gray-800 text-sm leading-relaxed">
-                            94/5 ต.หนองทุ่ม อ.เซกา จ.บึงกาฬ
-                        </span>
+                        <p class="text-xs text-slate-400 font-medium">ที่อยู่</p>
+                        <p class="text-xs font-semibold text-slate-700">94/5 ต.หนองทุ่ม อ.เซกา จ.บึงกาฬ</p>
                     </div>
                 </div>
             </div>
+        </section>
 
-            <!-- Quick Message Form -->
-            <div class="p-6 rounded-3xl bg-white border border-purple-100 shadow-sm">
-                <h3 class="font-bold text-gray-800 font-kanit mb-4">ฝากข้อความถึงป๋องแป้ง</h3>
-                <form id="contact-form" onsubmit="handleFormSubmit(event)" class="space-y-4">
-                    <div>
-                        <label class="block text-xs font-medium text-gray-600 mb-1">ชื่อของคุณ</label>
-                        <input type="text" required placeholder="เช่น กรุณากรอกชื่อของคุณ" class="w-full px-4 py-2.5 rounded-xl bg-gray-50 border border-gray-200 text-sm focus:outline-none focus:border-purple-400 focus:bg-white transition-all">
-                    </div>
-                    <div>
-                        <label class="block text-xs font-medium text-gray-600 mb-1">ข้อความ</label>
-                        <textarea rows="3" required placeholder="พิมพ์ข้อความที่นี่..." class="w-full px-4 py-2.5 rounded-xl bg-gray-50 border border-gray-200 text-sm focus:outline-none focus:border-purple-400 focus:bg-white transition-all"></textarea>
-                    </div>
-                    <button type="submit" class="w-full py-3 rounded-xl bg-gradient-to-r from-purple-400 to-blue-400 text-white font-semibold text-sm shadow-md hover:opacity-95 transition-all">
-                        <i class="fa-solid fa-paper-plane mr-1"></i> ส่งข้อความ
-                    </button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- Toast Alert Notification -->
-    <div id="toast" class="fixed bottom-5 right-5 hidden bg-purple-900 text-white px-5 py-3 rounded-2xl shadow-lg text-sm z-50 flex items-center gap-2">
-        <i class="fa-solid fa-circle-check text-emerald-400"></i>
-        <span id="toast-message">คัดลอกเรียบร้อยแล้ว</span>
-    </div>
+    </main>
 
     <!-- Footer -->
-    <footer class="bg-white border-t border-purple-100 py-8 text-center text-xs text-gray-500">
-        <div class="max-w-6xl mx-auto px-4">
-            <p class="font-kanit text-sm font-semibold text-purple-700 mb-1">นางสาวมั่นเกล้า รูปสิงห์ (ป๋องแป้ง)</p>
-            <p>© 2026 Mankao Roopsing. Academic Portfolio for Health Science & Public Health.</p>
-        </div>
+    <footer class="py-6 text-center text-xs text-slate-400 border-t border-purple-100/50 mt-12 glass-card">
+        <p>© 2026 Mankao Rupsing. All rights reserved. | Academic Portfolio</p>
     </footer>
 
-    <!-- Interactive JavaScript -->
-    <script>
-        // Toggle Mobile Menu
-        const menuBtn = document.getElementById('menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-
-        menuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        // Close mobile menu on link click
-        document.querySelectorAll('#mobile-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-            });
-        });
-
-        // Copy to clipboard function
-        function copyToClipboard(text, message) {
-            const textarea = document.createElement('textarea');
-            textarea.value = text;
-            document.body.appendChild(textarea);
-            textarea.select();
-            document.execCommand('copy');
-            document.body.removeChild(textarea);
-
-            showToast(message);
-        }
-
-        // Show Toast Function
-        function showToast(msg) {
-            const toast = document.getElementById('toast');
-            const toastMsg = document.getElementById('toast-message');
-            toastMsg.innerText = msg;
-            toast.classList.remove('hidden');
-            
-            setTimeout(() => {
-                toast.classList.add('hidden');
-            }, 3000);
-        }
-
-        // Handle Contact Form Submit
-        function handleFormSubmit(event) {
-            event.preventDefault();
-            showToast('ขอบคุณสำหรับข้อความ! จะติดต่อกลับโดยเร็วที่สุดค่ะ');
-            document.getElementById('contact-form').reset();
-        }
-    </script>
 </body>
 </html>
